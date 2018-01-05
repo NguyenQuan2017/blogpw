@@ -1,0 +1,39 @@
+body {
+  font-family: 'PT Sans', sans-serif;
+}
+.top-bar {
+  height: 27px;
+  background-color: #dddfe1 !important;
+  .social {
+    float: right
+  }
+}
+.navbar {
+  margin-top:50px;
+  margin-bottom:100px
+}
+.carousel-item img {
+  width:100%;
+  height: 500px
+}
+.content-post {
+  margin-top:50px;
+  .categories {
+    margin-top:100px;
+    .list-categories li i {
+      font-size: 10px;
+    }
+  }
+  .popular-post {
+    margin-top:100px;
+    .title-post {
+      margin-bottom: 50px;
+      font-size: 30px;
+    }
+    .media img {
+      width: 64px;
+      height: 64px;
+    }
+  }
+
+}
