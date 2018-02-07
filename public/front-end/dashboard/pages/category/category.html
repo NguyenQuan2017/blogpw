@@ -1,0 +1,53 @@
+
+<div class="categories" ng-controller="CategoryController" ng-init="init()">
+        <div class="row">
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header">
+                      <span ng-click="add()">ADD</span> / <span>EDIT</span>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="category">Name Category</label>
+                                <input type="text" class="form-control"
+                                       placeholder="Category" ng-model="cates.category">
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control"  ng-model="cates.description"
+                                          rows="8">{{cates.description}}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <a href="" class="btn btn-save" ng-click="save(cates)">Save</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-8">
+                <table class="table list-category table-bordered table-hover">
+                    <thead class="thead-color">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Categories</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Created_at</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="cates in categories " ng-dblclick="edit(cates)">
+                        <th scope="row">{{cates.id}}</th>
+                        <td>{{cates.category}}</td>
+                        <td>{{cates.description}}</td>
+                        <td>{{cates.created_at}}</td>
+                        <td><a class="btn btn-danger" ng-click="delete(cates)">DELETE</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,45 @@
+<div class="tags" ng-controller="TagController" ng-init="init()">
+    <div class="row">
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <span ng-click="add()">ADD</span> / <span>EDIT</span>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="tag">Tags</label>
+                            <input type="text" class="form-control"
+                                   placeholder="Tag" ng-model="tag.tag">
+                        </div>
+                        <div class="form-group">
+                            <a href="" class="btn btn-save" ng-click="save(tag)">Save</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-8">
+            <table class="table list-tag table-bordered table-hover">
+                <thead class="thead-color">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Tag</th>
+                    <th scope="col">Created_at</th>
+                    <th scope="col">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="tag in tags " ng-dblclick="edit(tag)">
+                    <th scope="row">{{tag.id}}</th>
+                    <td>{{tag.tag}}</td>
+                    <td>{{tag.created_at}}</td>
+                    <td><a class="btn btn-danger" ng-click="delete(tag)">DELETE</a></td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

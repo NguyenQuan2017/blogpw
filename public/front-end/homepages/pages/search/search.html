@@ -1,0 +1,43 @@
+<header ng-include="'component/header.component.html'">
+</header>
+<div >
+    <div class="container content-post">
+        <div class="row">
+            <div class="col-9" ng-init="init()" ng-controller="SearchController">
+                <div class="row" >
+                    <div class="col-12" ng-repeat="post in posts">
+                        <div class="card-deck" >
+                            <div class="card">
+                                <img class="card-img-top" ng-src="{{post.image}}" height="350" alt="Card image cap">
+
+                                <div class="card-body">
+                                    <h5
+                                            class="card-title"><a href="" ng-click="detailPost(post); counter(post)">{{post
+                                        .title}}</a></h5>
+                                    <p class="author">By <span>{{post.author}}</span> | Date time: <span>{{post.created_at}}</span> |
+                                        Categories:
+                                        <span ng-repeat="cate in post.categories">{{cate.category}},</span></p>
+                                    <p class="card-text" id="content"> <span data-ng-bind-html="post.content |removeHTMLTags | limitTo:200  "></span><span>[...]</span>
+                                        <a href="" ng-click="detailPost(post);counter(post)" >Read more</a></p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="row">
+                                        <div class="col-7">
+                                            <small class="text-muted">Last updated {{post.time_post}}</small>
+                                        </div>
+                                        <div class="col-5">
+                                            <small><i class="fa fa-eye" aria-hidden="true"></i>/{{post.counter}}</small>
+                                            <small><i class="fa fa-comment-o" aria-hidden="true"></i>/</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 side-bar" ng-include="'component/sidebar.component.html'"  ng-controller="SideBarController" ng-init="init()">
+            </div>
+        </div>
+    </div>
+</div>

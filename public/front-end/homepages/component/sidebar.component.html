@@ -1,0 +1,64 @@
+
+    <div class="search-post">
+        <form class="navbar-form" role="search">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search" name="q">
+                <div class="input-group-btn">
+                    <button class="btn btn-default"
+                            type="submit"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="categories">
+        <p>DANH MỤC</p>
+        <div class="list-group list-categories" ng-repeat="cate in categories track by $index"  ng-click="searchCate(cate)" >
+            <a href="javascript:void(0)" class="list-group-item list-group-item-action"> <i class="fa fa-angle-right" aria-hidden="true"></i> {{cate.category}} <span>({{cate.posts_count}})
+                </span></a>
+        </div>
+
+    </div>
+    <div class="popular-post">
+        <div>
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" ui-sref="state" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Nổi bật</a>
+                    <a class="nav-item nav-link" id="nav-recent-tab" data-toggle="tab" ui-sref="state" href="#nav-recent" role="tab" aria-controls="nav-recent" aria-selected="false">Gần đây</a>
+                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" ui-sref="state" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"><i class="fa fa-comments-o" aria-hidden="true"></i></a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <ul class="list-unstyled">
+                        <li class="media" ng-repeat="p in popular" ng-click="detailPost(p); counter(p)">
+                            <a href=""> <img class="mr-3" ng-src="{{p.image}}" alt="Generic placeholder image"></a>
+                            <div class="media-body">
+                                <a href="">  <p class="mt-0 mb-1">{{p.title | limitTo:50}}...</p></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-pane fade" id="nav-recent" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <ul class="list-unstyled">
+                        <li class="media" ng-repeat="re in recent" ng-click="detailPost(re);counter(re)">
+                            <a href="">   <img class="mr-3" ng-src="{{re.image}}" alt="Generic placeholder image"></a>
+                            <div class="media-body">
+                                <a href="">  <p class="mt-0 mb-1">{{re.title | limitTo:50}}...</p></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="tag">
+        <p>TAGS</p>
+        <div class=" btn-tag">
+            <button type="button" ng-click="searchTag(tag)" class="btn btn-outline-secondary col-4"
+                    ng-repeat="tag in tags">{{tag
+                .tag}}</button>
+        </div>
+    </div>

@@ -1,0 +1,69 @@
+<nav class="col-1 d-none d-sm-block  sidebar">
+    <div class="card-header">
+        <h5 class="mb-0">
+            <a ui-sref="dashboard"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+        </h5>
+    </div>
+    <div id="accordion" role="tablist">
+        <div class="card">
+            <div class="card-header" role="tab" id="category">
+                <h6 class="mb-0">
+                    <a data-toggle="collapse" ui-sref="state" href="#cates" role="button"
+                       aria-expanded="false"
+                       aria-controls="category"> <i class="fa fa-list" aria-hidden="true"></i> Categories</a>
+                </h6>
+            </div>
+            <div id="cates" class="collapse" role="tabpanel" aria-labelledby="category"
+                 data-parent="#accordion" >
+                <div class="card-body">
+                    <a ui-sref="categories"><i class="fa fa-list" aria-hidden="true"></i> LIST</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" role="tab" id="posts">
+                <h6 class="mb-0">
+                    <a class="collapsed" data-toggle="collapse" ui-sref="state" href="#post" role="button"
+                       aria-expanded="false" aria-controls="posts">
+                        <i class="fa fa-file-text-o"></i> Posts
+                    </a>
+                </h6>
+            </div>
+            <div id="post" class="collapse" role="tabpanel" aria-labelledby="posts"
+                 data-parent="#accordion">
+                <div class="card-body">
+                <a ui-sref="posts"><i class="fa fa-list" aria-hidden="true"></i> LIST</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" role="tab" id="tag">
+                <h6 class="mb-0">
+                    <a class="collapsed" data-toggle="collapse" ui-sref="state" href="#tags" role="button"
+                       aria-expanded="false" aria-controls="tag">
+                        <i class="fa fa-file-text-o"></i> Tags
+                    </a>
+                </h6>
+            </div>
+            <div id="tags" class="collapse" role="tabpanel" aria-labelledby="tag"
+                 data-parent="#accordion">
+                <div class="card-body">
+                <a ui-sref="tags"><i class="fa fa-list" aria-hidden="true"></i> LIST</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" role="tab" id="Settings">
+                <h6 class="mb-0">
+                    <a class="collapsed" data-toggle="collapse" ui-sref="state" href="#setting" role="button"
+                       aria-expanded="false"
+                       aria-controls="Settings">
+                        <i class="fa fa-cog"></i> Settings
+                    </a>
+                </h6>
+            </div>
+            <div id="setting" class="collapse" role="tabpanel" aria-labelledby="Settings" data-parent="#accordion">
+                <!--<div class="card-body">-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+</nav>

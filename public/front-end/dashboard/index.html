@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" ng-app="BlogApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="node_modules/angular-multiple-select/build/multiple-select.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="dist/css/style.css">
+</head>
+<body>
+<div>
+    <div class="container-fluid">
+        <div class="row"  ng-include="'component/header/header.component.html'"></div>
+        <div class="row">
+            <div class="col-1" ng-include="'component/sidebar/sidebar.component.html'"></div>
+            <div class="col-11">
+                <ui-view></ui-view>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="node_modules/tinymce/tinymce.min.js"></script>
+<script src="node_modules/angular/angular.js"></script>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="node_modules/angular-jwt/dist/angular-jwt.js"></script>
+<script src="node_modules/angular-multiple-select/build/multiple-select.js"></script>
+<script src="node_modules/angular-ui-tinymce/src/tinymce.js"></script>
+<script src="js/app.js"></script>
+<script src="pages/login/login.js"></script>
+<script src="pages/category/category.js"></script>
+<script src="pages/post/post.js"></script>
+<script src="pages/tag/tag.js"></script>
+<script src="directive/filerReader.js"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+
+.my-login-page {
+  background-color: #f7f9fb;
+  font-size: 14px;
+  margin-top: 60px;
+  .brand {
+    width: 90px;
+    height: 90px;
+    overflow: hidden;
+    border-radius: 50%;
+    //margin: 0 auto;
+    margin: 40px auto;
+    box-shadow: 0 0 40px rgba(0,0,0,.05);
+    img {
+      width: 100%;
+    }
+  }
+  .card-wrapper {
+    width: 400px;
+    margin: 0 auto;
+  }
+  .card {
+    border-color: transparent;
+    box-shadow: 0 0 40px rgba(0,0,0,.05);
+    padding: 10px;
+    margin-top: 50px;
+
+    .card-title {
+      margin-bottom: 30px;
+    }
+  }
+  .form-control {
+    border-width: 2.3px;
+  }
+  .form-group label {
+    width: 100%;
+  }
+  .btn.btn-block {
+    padding: 12px 10px;
+  }
+  .margin-top20 {
+    margin-top: 20px;
+  }
+  .no-margin {
+    margin: 0;
+  }
+  .footer {
+    margin: 40px 0;
+    color: #888;
+    text-align: center;
+  }
+}
+
+
+@media screen and (max-width: 425px) {
+  .my-login-page .card-wrapper {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .my-login-page .card.fat {
+    padding: 0;
+  }
+
+  .my-login-page .card.fat .card-body {
+    padding: 15px;
+  }
+}
+.sidebar {
+  position: fixed;
+  top: 51px;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 20px 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-right: 1px solid #eee;
+  background-color: #42566c;
+  .nav-item {
+    .active {
+      background-color: #343b40
+    }
+  }
+}
+#accordion  {
+  .card {
+    background-color: #42566c !important;
+  }
+}
+ a {
+  color: #ffffff !important;
+}
+ a:hover{
+   text-decoration: none;
+ }
+.categories {
+  margin-top: 100px;
+  .thead-color {
+    background-color: #343b40;
+    tr th {
+      color: #ffffff;
+    }
+  }
+  .list-category {
+    cursor: pointer;
+  }
+}
+.btn-save {
+  background-color: #343b40;
+}
+.card-header span {
+  cursor: pointer;
+}
+.posts {
+  margin-top: 100px;
+  .thead-color {
+    background-color: #343b40;
+    tr th {
+      color: #ffffff;
+    }
+  }
+  .list-post {
+    cursor: pointer;
+  }
+}
+.search {
+  margin-bottom: 50px;
+}
+.bootstrap-select.btn-group .dropdown-menu a.dropdown-item span.dropdown-item-inner span{
+  color: black;
+}
+.tags {
+  margin-top: 100px;
+  .thead-color {
+    background-color: #343b40;
+    tr th {
+      color: #ffffff;
+    }
+  }
+  .list-tag {
+    cursor: pointer;
+  }
+}

@@ -22,3 +22,20 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+$factory->define(App\Models\Post::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->jobTitle,
+        'content' => $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
+        'image' => $faker->image($dir = 'public/front-end/dashboard/dist/img', $width = 640, $height = 480),
+        'author' => $faker->firstName,
+        'created_post' =>\Carbon\Carbon::today(),
+        'status_post' => 0
+    ];
+});
+
+$factory->define(App\Models\Category::class,function(Faker\Generator $faker) {
+    return [
+        'category' => $faker->jobTitle,
+        'description' => $faker->sentences($nbWords = 6, $variableNbWords = true)
+    ];
+});

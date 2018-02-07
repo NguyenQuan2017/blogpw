@@ -1,0 +1,52 @@
+<header ng-include="'component/header.component.html'">
+</header>
+<div class="container" ng-controller="DetailPostController" ng-init="init()">
+    <div class="row content-post">
+        <div class="detail-post col-9">
+            <div class="image-post">
+                <div class="bg">
+                    <p class="title-post">{{posts.title}}</p>
+                </div>
+
+                <img ng-src="{{posts.image}}" class="img-fluid" alt="Responsive image">
+            </div>
+            <div class="more-post">
+
+                <div class="content">
+                    <p ng-bind-html="posts.content"></p>
+                    <hr>
+                    <p class="author">By <span>{{posts.author}}</span> | Date time: <span>{{posts.created_at}}</span> |
+                        Categories:
+                        <span ng-repeat="cate in posts.categories">{{cate.category}},</span></p>
+                    <hr>
+                </div>
+                <div class="share-social">
+                    <div class="row">
+                        <div class="col-6 text-social">
+                            <p>Share This Story, Choose Your Platform</p>
+                        </div>
+                        <div class="col-5 icon-social">
+                            <a href="" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <a href="" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            <a href="" title="linkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            <a href="" title="linkedIn"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="comment-post">
+                <p class="title-related-post">Comments</p>
+                <hr>
+                <div>
+                    <div>
+                        <div id="disqus_thread" class="col-12"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3 side-bar" ng-include="'component/sidebar.component.html'" ng-controller="SideBarController" ng-init="init()">
+        </div>
+    </div>
+</div>
+
+
