@@ -1,5 +1,4 @@
-<header ng-include="'component/header.component.html'">
-</header>
+
 <div >
     <div class="container content-post">
         <div class="row">
@@ -11,12 +10,17 @@
                                 <img class="card-img-top" ng-src="{{post.image}}" height="350" alt="Card image cap">
 
                                 <div class="card-body">
-                                    <h5
-                                            class="card-title"><a href="" ng-click="detailPost(post); counter(post)">{{post
+                                    <h5 class="card-title"><a href="" ng-click="detailPost(post); counter(post)">{{post
                                         .title}}</a></h5>
-                                    <p class="author">By <span>{{post.author}}</span> | Date time: <span>{{post.created_at}}</span> |
+                                    <p class="author">
+                                        By:
+                                        <span>{{post.author}}</span>|
+                                        Date time:
+                                        <span>{{post.created_at}}</span> |
                                         Categories:
-                                        <span ng-repeat="cate in post.categories">{{cate.category}},</span></p>
+                                        <span ng-repeat="cate in post.categories">{{cate.category}},</span> |
+                                        Tags:
+                                        <span ng-repeat="tag in post.tags">{{tag.tag}},</span></p>
                                     <p class="card-text" id="content"> <span data-ng-bind-html="post.content |removeHTMLTags | limitTo:200  "></span><span>[...]</span>
                                         <a href="" ng-click="detailPost(post);counter(post)" >Read more</a></p>
                                 </div>

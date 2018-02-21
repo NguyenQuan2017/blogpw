@@ -1,5 +1,4 @@
-<header ng-include="'component/header.component.html'">
-</header>
+
 <div class="container" ng-controller="DetailPostController" ng-init="init()">
     <div class="row content-post">
         <div class="detail-post col-9">
@@ -15,9 +14,15 @@
                 <div class="content">
                     <p ng-bind-html="posts.content"></p>
                     <hr>
-                    <p class="author">By <span>{{posts.author}}</span> | Date time: <span>{{posts.created_at}}</span> |
+                    <p class="author">
+                        By:
+                        <span>{{posts.author}}</span>|
+                        Date time:
+                        <span>{{posts.created_at}}</span> |
                         Categories:
-                        <span ng-repeat="cate in posts.categories">{{cate.category}},</span></p>
+                        <span ng-repeat="cate in posts.categories">{{cate.category}},</span> |
+                        Tags:
+                        <span ng-repeat="tag in posts.tags">{{tag.tag}},</span></p>
                     <hr>
                 </div>
                 <div class="share-social">

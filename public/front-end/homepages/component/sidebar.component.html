@@ -2,10 +2,10 @@
     <div class="search-post">
         <form class="navbar-form" role="search">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search" name="q">
+                <input type="text" class="form-control" ng-model="keyword" placeholder="Search" name="q">
                 <div class="input-group-btn">
                     <button class="btn btn-default"
-                            type="submit"><i class="fa fa-search"></i></button>
+                            type="submit" ng-click = search(keyword)><i class="fa fa-search"></i></button>
                 </div>
             </div>
         </form>

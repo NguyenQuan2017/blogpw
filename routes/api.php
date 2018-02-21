@@ -41,7 +41,7 @@ Route::group(['prefix' =>'dashboard'], function () {
         ]);
 
         Route::get('post', [
-            'uses' => 'DashboardController@index'
+            'uses' => 'Dashboard\DashboardController@index'
         ]);
 
         Route::post('/ip', [
@@ -50,16 +50,16 @@ Route::group(['prefix' =>'dashboard'], function () {
         Route::group(['prefix' =>'categories'], function () {
 
            Route::get('/', [
-               'uses' => 'DashboardController@getCategories'
+               'uses' => 'Dashboard\CategoryController@getCategories'
            ]);
            Route::post('/', [
-                'uses' => 'DashboardController@createCategories'
+                'uses' => 'Dashboard\CategoryController@createCategories'
            ]);
            Route::put('{id}', [
-                'uses' => 'DashboardController@updateCategories'
+                'uses' => 'Dashboard\CategoryController@updateCategories'
            ]);
             Route::delete('{id}', [
-                'uses' => 'DashboardController@deleteCategories'
+                'uses' => 'Dashboard\CategoryController@deleteCategories'
             ]);
 
         });
@@ -67,34 +67,43 @@ Route::group(['prefix' =>'dashboard'], function () {
         Route::group(['prefix' => 'posts'], function () {
 
             Route::get('/', [
-                'uses' => 'DashboardController@getAllPost'
+                'uses' => 'Dashboard\PostController@getAllPost'
             ]);
             Route::get('{id}/categories', [
-                'uses' => 'DashboardController@getCate'
+                'uses' => 'Dashboard\PostController@getCate'
             ]);
             Route::post('/',[
-                'uses' => 'DashboardController@createPost'
+                'uses' => 'Dashboard\PostController@createPost'
             ]);
             Route::put('{id}', [
-                'uses' => 'DashboardController@updatePost'
+                'uses' => 'Dashboard\PostController@updatePost'
             ]);
             Route::delete('{id}', [
-                'uses' => 'DashboardController@deletePost'
+                'uses' => 'Dashboard\PostController@deletePost'
             ]);
         });
 
         Route::group(['prefix' => 'tags'],function() {
             Route::get('/', [
-                'uses' => 'DashboardController@getTag'
+                'uses' => 'Dashboard\TagController@getTag'
             ]);
             Route::post('/', [
-                'uses' => 'DashboardController@createTag'
+                'uses' => 'Dashboard\TagController@createTag'
             ]);
             Route::put('{id}', [
-                'uses' => 'DashboardController@updateTag'
+                'uses' => 'Dashboard\TagController@updateTag'
             ]);
             Route::delete('{id}', [
-                'uses' => 'DashboardController@deleteTag'
+                'uses' => 'Dashboard\TagController@deleteTag'
+            ]);
+        });
+
+        Route::group(['prefix' => 'users'], function() {
+            Route::get('/', [
+                'uses' => 'Dashboard\UserController@getAllUser'
+            ]);
+            Route::get('{id}/password', [
+                'uses' => 'Dashboard\UserController@getPassword'
             ]);
         });
     });
@@ -104,29 +113,29 @@ Route::group(['prefix' => 'homepages'], function () {
 
     Route::group(['prefix' => 'category'], function () {
         Route::get('/', [
-            'uses' => 'CategoryController@index'
+            'uses' => 'HomePage\CategoryController@index'
         ]);
 
     });
 
     Route::group(['prefix' => 'posts'], function () {
         Route::get('/', [
-            'uses' => 'PostController@index'
+            'uses' => 'HomePage\PostController@index'
         ]);
         Route::get('{id}/detail', [
-            'uses' => 'PostController@show'
+            'uses' => 'HomePage\PostController@show'
         ]);
         Route::post('{id}/counter',[
-            'uses' => 'PostController@counter'
+            'uses' => 'HomePage\PostController@counter'
         ]);
         Route::get('/popular', [
-            'uses' => 'PostController@popular'
+            'uses' => 'HomePage\PostController@popular'
         ]);
         Route::get('/recent',[
-            'uses' => 'PostController@recent'
+            'uses' => 'HomePage\PostController@recent'
         ]);
         Route::get('/{keyword}/search', [
-            'uses' => 'PostController@search'
+            'uses' => 'HomePage\PostController@search'
         ]);
 //        Route::get('/{keyword}/tags', [
 //            'uses' => 'PostController@postTag'
@@ -135,7 +144,7 @@ Route::group(['prefix' => 'homepages'], function () {
 
     Route::group(['prefix' => 'tags'], function() {
         Route::get('/', [
-            'uses' => 'TagController@index'
+            'uses' => 'HomePage\TagController@index'
         ]);
     });
 });

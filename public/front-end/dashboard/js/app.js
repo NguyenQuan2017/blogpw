@@ -1,7 +1,7 @@
 
 // apiUrl = 'http://blogpw.localhost/api/dashboard';
 apiUrl = 'http://192.168.1.76:9000/api/dashboard';
-var app = angular.module("BlogApp",['ui.router','angular-jwt','multipleSelect','appFilereader','ui.tinymce'])
+var app = angular.module("BlogApp",['ui.router','angular-jwt','multipleSelect','appFilereader','ui.tinymce','ui.bootstrap'])
     .run(function ($rootScope,$state,jwtHelper,$http) {
         $http.get(apiUrl + '/user')
             .then(function(res) {
@@ -11,7 +11,20 @@ var app = angular.module("BlogApp",['ui.router','angular-jwt','multipleSelect','
         $rootScope.logout = function () {
             localStorage.removeItem('token');
             location.reload();
-        }
+        };
+        // ===== Scroll to Top ====
+        $(window).scroll(function() {
+            if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
+                $('#return-to-top').fadeIn(200);    // Fade in the arrow
+            } else {
+                $('#return-to-top').fadeOut(200);   // Else fade out the arrow
+            }
+        });
+        $('#return-to-top').click(function() {      // When arrow is clicked
+            $('body,html').animate({
+                scrollTop : 0                       // Scroll to top of body
+            }, 500);
+        });
     })
     .config(['$stateProvider', '$urlRouterProvider','$httpProvider','$locationProvider', function ($stateProvider, $urlRouterProvider,$httpProvider,$locationProvider) {
 
@@ -40,6 +53,11 @@ var app = angular.module("BlogApp",['ui.router','angular-jwt','multipleSelect','
                 name : 'tags',
                 url : '/tags',
                 templateUrl : '/front-end/dashboard/pages/tag/tag.html'
+            })
+            .state({
+                name : 'users',
+                url : '/users',
+                templateUrl : '/front-end/dashboard/pages/user/user.html'
             });
 
         // $urlRouterProvider.otherwise('/');

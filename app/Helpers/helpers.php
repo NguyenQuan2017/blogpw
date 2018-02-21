@@ -19,3 +19,14 @@ function response_error($data = [],$message = '', $code = 400) {
     $user = JWTAuth::parseToken()->toUser();
     return $user;
 }
+function encrypt_password($password)
+{
+    $ciphertext = openssl_encrypt($password, 'AES-256-ECB', config('app.key'));
+
+    return strtoupper(bin2hex($ciphertext));
+}
+
+function decrypt_password($password)
+{
+    return openssl_decrypt(hex2bin($password), 'AES-256-ECB', config('app.key'));
+}

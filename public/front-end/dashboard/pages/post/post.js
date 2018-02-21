@@ -7,6 +7,14 @@ app.controller("PostController", function($scope,$http,$window,$timeout) {
        $http.get(apiUrl + '/posts')
            .then(function(res) {
                $scope.posts = res.data.data.posts;
+               $scope.viewby = 5;
+               $scope.totalItems = $scope.posts.length;
+               $scope.currentPage = 1;
+               $scope.itemsPerPage = $scope.viewby;
+               $scope.maxSize = 5; //Number of pager buttons to show
+               $scope.setPage = function (pageNo) {
+                   $scope.currentPage = pageNo;
+               };
                $scope.categories = res.data.data.categories;
                $scope.tags = res.data.data.tags;
            });
@@ -49,14 +57,13 @@ app.controller("PostController", function($scope,$http,$window,$timeout) {
     };
       
     $scope.save = function (posts,cate,tag) {
-
         $scope.title = posts.title;
         $scope.content = posts.content;
         $scope.image = posts.image;
         $scope.cate = cate;
         $scope.tag = tag;
+        var data = {title:$scope.title,content:$scope.content,image : $scope.image,cate: $scope.cate,tag: $scope.tag};
         if(posts.id) {
-            var data = {title:$scope.title,content:$scope.content,image : $scope.image,cate: $scope.cate,tag: $scope.tag};
             $http.put(apiUrl + '/posts/' + posts.id, data)
                 .then(function(res) {
                     if(res.data.status == 'ok') {
@@ -66,8 +73,7 @@ app.controller("PostController", function($scope,$http,$window,$timeout) {
                     }
                 })
         }else {
-            var data1 = {title:$scope.title,content:$scope.content,image : $scope.image,cate: $scope.cate,tag: $scope.tag};
-            $http.post(apiUrl + '/posts',data1)
+            $http.post(apiUrl + '/posts',data)
                 .then(function(res) {
                     if(res.data.status == 'ok') {
                         // $scope.posts.push(posts);

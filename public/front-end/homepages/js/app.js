@@ -1,6 +1,6 @@
 
     apiUrl = 'http://192.168.1.76:9000/api/homepages';
-var app = angular.module("BlogApp",['ui.router','ngSanitize'])
+var app = angular.module("BlogApp",['ui.router','ngSanitize','ngDisqus','ui.bootstrap'])
     .run([function($scope) {
         // ===== Scroll to Top ====
         $(window).scroll(function() {

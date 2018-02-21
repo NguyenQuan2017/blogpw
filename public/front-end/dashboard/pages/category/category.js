@@ -25,8 +25,9 @@ app.controller("CategoryController", function ($scope, $http) {
     };
 
     $scope.save = function (cate) {
+        var data = {category:cate.category,description:cate.description};
         if(cate.id) {
-            $http.put(apiUrl + '/categories/' + cate.id,cate)
+            $http.put(apiUrl + '/categories/' + cate.id,data)
                 .then(function(res) {
                     if(res.data.status = 'ok') {
                         $scope.categories.push(cate);
@@ -35,7 +36,7 @@ app.controller("CategoryController", function ($scope, $http) {
                 })
         }
         else {
-            $http.post(apiUrl + '/categories',cate)
+            $http.post(apiUrl + '/categories',data)
                 .then(function (res) {
                     if(res.data.status = 'ok') {
                         $scope.categories.push(cate);

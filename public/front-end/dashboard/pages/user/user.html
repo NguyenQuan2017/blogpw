@@ -1,0 +1,73 @@
+
+<div class="posts" ng-controller="UserController" ng-init="init()">
+    <div class="row justify-content-md-center search">
+        <div class="input-group col-6">
+            <input type="text" class="form-control" ng-model="keyPost" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button">Search</button>
+      </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                  <span>EDIT</span>
+                </div>
+                <div class="card-body">
+                    <form enctype="multipart/form-data">
+
+                        <div class="form-group">
+                            <label for="image">UserName</label>
+                            <input type="text" ng-model="user.username" class="form-control">
+                            <!--<input type='file' class="form-control" name='file' id='file' file-model='post.image'><br/>-->
+                        </div>
+                        <div class="form-group">
+                            <label for="image">Password</label>
+                            <input type="text" ng-model="user.password" class="form-control">
+                            <i class="fa fa-eye eye-password" aria-hidden="true" ng-click="getPassword()"></i>
+                            <!--<input type='file' class="form-control" name='file' id='file' file-model='post.image'><br/>-->
+                        </div>
+                        <div class="form-group">
+                            <label for="image">Email</label>
+                            <input type="text" ng-model="user.email" class="form-control">
+                            <!--<input type='file' class="form-control" name='file' id='file' file-model='post.image'><br/>-->
+                        </div>
+
+                        <div class="form-group">
+                            <a href="" class="btn btn-save" ng-click="save(user)">Save</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-8">
+            <table class="table list-post table-bordered table-hover">
+                <thead class="thead-color">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">UserName</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="user in users.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter : keyPost" ng-dblclick="edit(post)">
+                    <th scope="row">{{user.id}}</th>
+                    <td>{{user.username}}</td>
+                    <td>{{user.email}}</td>
+                    <td><a class="btn btn-danger" ng-click="delete(post)">DELETE</a></td>
+                </tr>
+                <tr>
+                    <td colspan="6">
+                        <pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm " boundary-links="true" rotate="false" num-pages="numPages" items-per-page="itemsPerPage"></pagination>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</div>

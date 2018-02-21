@@ -43,12 +43,12 @@ app.controller("SideBarController",function($scope,$http,$location) {
 
     $scope.searchCate = function(cate) {
         $scope.categories = 'categories';
-        $location.path('/' + $scope.categories + '/' + cate.category);
+        $location.path('/' + $scope.categories + '/' + cate.slug);
     };
 
     $scope.searchTag = function(tag) {
         $scope.tags = 'tags';
-        $location.path('/' + $scope.tags + '/' + tag.tag);
-    }
-
+        $location.path('/' + $scope.tags + '/' + tag.slug);
+    };
+    
 });
